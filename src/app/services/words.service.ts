@@ -1,14 +1,13 @@
-import {Injectable} from '@angular/core';
-import {Type, WordType} from "../data/models";
-import {WORDS} from "../data/data-base";
-import {BehaviorSubject, Observable, Subject} from "rxjs";
-import {map} from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { Type, WordType } from '../data/models';
+import { WORDS } from '../data/data-base';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WordsService {
-
   private words = new BehaviorSubject<WordType[]>([]);
   private nouns = new Subject<WordType>();
   private verbs = new Subject<WordType>();
@@ -16,8 +15,7 @@ export class WordsService {
   constructor() {
     setTimeout(() => {
       this.words.next(WORDS);
-    },2000);
-
+    }, 1000);
   }
 
   addNoun(value: WordType): void {
@@ -49,7 +47,4 @@ export class WordsService {
       })
     );
   }
-
-
-
 }

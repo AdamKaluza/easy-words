@@ -1,25 +1,20 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {WordType} from "../../data/models";
+
+import { Component, Input } from '@angular/core';
+import { WordType } from '../../data/models';
 
 @Component({
   selector: 'app-answers',
   templateUrl: './answers.component.html',
-  styleUrls: ['./answers.component.css']
+  styleUrls: ['./answers.component.css'],
 })
-export class AnswersComponent implements OnInit {
+export class AnswersComponent {
+  // @ts-ignore
+  @Input() title: string;
+  words: WordType[] = [];
 
-  @Input() title: string | undefined;
-   words: WordType[] = [];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  @Input() set word(word: WordType) {
+  @Input() set word(word: WordType | null) {
     if (word) {
       this.words.push(word);
     }
   }
-
 }
