@@ -9,11 +9,17 @@ import {WordType} from "../../data/models";
 export class AnswersComponent implements OnInit {
 
   @Input() title: string | undefined;
-  @Input() words: WordType[] | undefined;
+   words: WordType[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  @Input() set word(word: WordType) {
+    if (word) {
+      this.words.push(word);
+    }
   }
 
 }
