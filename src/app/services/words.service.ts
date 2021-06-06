@@ -27,7 +27,7 @@ export class WordsService {
     return this.verbs;
   }
 
-  addNouns(value: WordType): void {
+  addNoun(value: WordType): void {
     this.nouns.push(value);
   }
 
